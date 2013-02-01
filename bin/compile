@@ -11,8 +11,9 @@ function indent() {
 }
 
 unset GIT_DIR
+BUILDPACK_LIST=($(echo $BUILDPACK_URLS))
 
-for BUILDPACK in ($(echo $BUILDPACK_URLS)); do
+for BUILDPACK in $BUILDPACK_LIST; do
   dir=$(mktemp -t buildpackXXXXX)
   rm -rf $dir
 
