@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ -f $1/.buildpacks ]; then
-  echo "Multipack"
-  exit 0
+if [ -z "$BUILDPACK_URLS" ]; then
+    echo "Multipack"
+    exit 0
 else
-  echo "no .buildpacks file"
-  exit 1
+    echo "no BUILDPACK_URLS set"
+    exit 1
 fi
